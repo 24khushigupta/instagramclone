@@ -18,6 +18,7 @@ Decription:
   - login.html
   - profile.html
   - create_and_uploadpost.html
+  - style.css
 ## Future Improvement:
   I am still learning and working on it.I will commplete this ASAP.
 ## Author:
