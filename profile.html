@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fafafa;
+        }
+
+
+        /* Navbar */
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #dbdbdb;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar button {
+            background: #ef4444;
+            border: none;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        /* Profile Section */
+        .profile {
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            border: 1px solid #dbdbdb;
+            padding: 20px;
+        }
+
+        .profile-top {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+
+        .profile-top img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+
+
+        .profile-info h2 {
+            margin-bottom: 10px;
+        }
+
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            margin: 10px 0;
+        }
+
+
+        /* Posts Grid */
+        .posts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .posts img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <b>Instagram</b>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+
+    <!-- Profile -->
+    <div class="profile">
+        <div class="profile-top">
+            <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+            <button onclick="edit()">Edit Profile</button>
+            <div class="profile-info">
+                <h2 id="username"></h2>
+                <div class="stats">
+                    <div><b>3</b> posts</div>
+                    <div><b>120</b> followers</div>
+                    <div><b>180</b> following</div>
+                </div>
+                <p>Simple bio goes here ✨</p>
+            </div>
+        </div>
+
+
+        <!-- Posts -->
+        <div class="posts">
+            <img src="https://cdn.pixabay.com/photo/2021/11/19/10/56/flowers-6808776_1280.jpg" />
+            <img src="https://media.istockphoto.com/id/1086723866/photo/colorful-flowers-growing-in-pots-on-the-balcony.jpg?s=612x612&w=0&k=20&c=ZUSz6NwTnIYt-QfmC0sSUDPI0xnafmZ8YycfCXIp3yE="/>
+            <img src="https://cdn.pixabay.com/photo/2020/07/17/17/37/cityscape-5414903_640.jpg" />
+        </div>
+    </div>
+    <script>
+        const user = localStorage.getItem('loggedInUser');
+
+
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            document.getElementById('username').innerText = user;
+        }
+
+
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
